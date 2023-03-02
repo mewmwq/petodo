@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main-container">
+  <div class="left-column">
+    <div class="pet-status-container">
+      <div class="pet-name">{{ pet.name }}</div>
+      <div class="pet-level">Lv.{{ pet.level }}</div>
+      <div class="pet-hp">HP {{ pet.hp }} / {{ pet.max_hp }}</div>
+      <div class="pet-exp">EXP {{ pet.xp }} / {{ pet.next_xp }}</div>
+    </div>
+
+    {% if pet.status == 'alive' %}
+    <img class="pet-image" src="{{ url_for('static', filename=pet_image_path) }}" />
+    {% else %}
+    <a href="{{ url_for('make_pet') }}">
+      <img class="pet-image" src="../static/img/dead.png" />
+    </a>
+    {% endif %}
+
+
+  </div>
+  <div class="right-column">
+    <div class="todo-container">
+      <h1 class="todo-title">Task</h1>
+      <ul class="task-list">
+        {% for task in tasks %}
+        <li class="task">
+          <a class="task-status" href="{{ url_for('change_task_status', task_id=task.id) }}">
+            {% if task.status == 'done' %}
+            <div class="task-status">✅</div>
+            {% elif task.status == 'failed' %}
+            <div class="task-status">❌</div>
+            {% else %}
+            <div class="task-status">⬜</div>
+            {% endif %}
+          </a>
+          <div class="task-content-container">
+            <div class="task-name">{{ task.name }}</div>
+            {% if task.limit %}
+            <div class="task-limit">期限: {{ task.limit }}</div>
+            {% endif %}
+          </div>
+          <div class="task-button-container">
+            <a class="task-button" href="{{ url_for('edit_task', task_id=task.id) }}">✏️</a>
+            <a class="task-button" href="{{ url_for('delete_task', task_id=task.id) }}">❌</a>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      <a class="add-task" href="{{ url_for('new_task') }}">
+        <button class="add-task-button">+ Add Task
+    </div>
+    </a>
+  </div>
+</div>
+{% endblock %}

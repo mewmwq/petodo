@@ -1,0 +1,121 @@
+:root {
+    --background-container: #202020cc;
+    --background-item: #fff3;
+    --color: #fff;
+    --color2: #bbb;
+    --border: 1px solid #ccc3;
+    --bs-border: 0 0 0 1px #eee3;
+    --bs-shadow: 0 3px 6px #0006;
+    --bs-border-shadow: var(--bs-border), var(--bs-shadow);
+    --radius: .5rem;
+    --fontsize-1: 1rem;
+    --fontsize-2: 1.5rem;
+    --fontsize-3: 2rem;
+    --fontweight-bold: 600;
+    --fontweight-black: 900;
+    --bfilter: blur(36px) saturate(150%);
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #666b;
+    border-radius: 10px;
+}
+
+body {
+    background-image: url(../img/bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-size: var(--fontsize-1);
+    color: var(--color);
+    margin: 0;
+    padding: 0;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* ヘッダー */
+.header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3em;
+    padding: 0 var(--fontsize-1);
+    flex: 0 50px;
+    background-color: var(--background-container);
+    backdrop-filter: var(--bfilter);
+    box-shadow: var(--bs-border-shadow);
+}
+
+.header-container>.title {
+    flex: 1;
+    font-size: var(--fontsize-3);
+    font-weight: var(--fontweight-black);
+    color: var(--color);
+    text-decoration: none;
+}
+
+.nav-item {
+    color: var(--color);
+    font-weight: var(--fontweight-bold);
+    text-decoration: none;
+}
+
+
+select {
+    padding: .5em;
+    border-radius: var(--radius);
+    border: none;
+    background: var(--background-container);
+    box-shadow: var(--bs-border);
+    font-size: var(--fontsize-1);
+    color: var(--color);
+}
+
+input {
+    padding: .5em;
+    border-radius: var(--radius);
+    border: none;
+    background: var(--background-container);
+    box-shadow: var(--bs-border);
+    font-size: var(--fontsize-1);
+    color: var(--color);
+}
+
+button {
+    padding: .5em;
+    border-radius: var(--radius);
+    border: none;
+    background: #fff3;
+    box-shadow: var(--bs-border-shadow);
+    font-size: var(--fontsize-1);
+    color: var(--color);
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+}
+
+button:hover {
+    background: #fff6;
+    box-shadow: unset;
+}
+
+.error-message {
+    color: #eb6a6a;
+    text-align: center;
+}
+
+a {
+    color: var(--color);
+    text-decoration: none;
+}

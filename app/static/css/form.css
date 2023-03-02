@@ -1,0 +1,44 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: relative;
+    overflow-x: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    padding: 3em;
+    justify-content: space-around;
+    background: var(--background-container);
+    backdrop-filter: var(--bfilter);
+    box-shadow: var(--bs-border-shadow);
+    border-radius: var(--radius);
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap : 3em;
+}
+
+.link {
+    color: var(--color2);
+    text-align: center;
+}
+.link:hover {
+    color: var(--color1);
+}

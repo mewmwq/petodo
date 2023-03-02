@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main-container">
+    <div class="content-container">
+        <h2 class="page-title">Create Task</h2>
+        <form class="form-container" action="{{ url_for('new_task') }}" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" />
+            </div>
+            <div class="form-group">
+                <label for="limit">Limit Date</label>
+                <input type="datetime-local" name="limit" />
+            </div>
+            {% if error_message %}
+            <p class="error-message">{{ error_message }}</p>
+            {% endif %}
+            <button type="submit" name="submit"> Add Task </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

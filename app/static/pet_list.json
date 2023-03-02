@@ -1,0 +1,12 @@
+[
+    {
+        "type": 0,
+        "name": "Dog",
+        "image": "dog.png"
+    },
+    {
+        "type": 1,
+        "name": "Cat",
+        "image": "cat.png"
+    }
+]

@@ -1,0 +1,140 @@
+.main-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1;
+    width: 100vw;
+    height: auto;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+    margin: 1em;
+}
+
+.pet-status-container {
+    border-radius: var(--radius);
+    background: var(--background-container);
+    backdrop-filter: var(--bfilter);
+    box-shadow: var(--bs-border-shadow);
+    padding: 1em;
+    font-size: 1.5em;
+    white-space: nowrap;
+}
+
+img.pet-image {
+    width: 18vw;
+    min-width: 300px;
+    filter: drop-shadow(0 9px 15px #000);
+}
+
+/* todo */
+.right-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+    justify-content: center;
+}
+
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    background: var(--background-container);
+    backdrop-filter: var(--bfilter);
+    box-shadow: var(--bs-border-shadow);
+    border-radius: var(--radius);
+    height: 85vh;
+    margin: 0 1rem;
+    max-width: 900px;
+}
+
+.todo-title {
+    font-size: var(--fontsize-2);
+    font-weight: var(--fontweight-bold);
+    padding: .5em;
+    margin: 0;
+    border-bottom: var(--border);
+}
+
+.task-list {
+    overflow-y: scroll;
+    list-style: none;
+    padding: .5em;
+    margin: 0;
+}
+
+.task {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    background: var(--background-item);
+    box-shadow: var(--bs-shadow);
+    border-radius: .5em;
+    padding: .5em;
+    margin: .5em 0;
+    align-items: center;
+    min-width: 300px;
+}
+
+.task-status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.task-content-container {
+    flex: 1 1 0;
+}
+
+.task-button-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.task-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--background-item);
+    border: none;
+    box-shadow: var(--bs-border);
+    border-radius: var(--radius);
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
+}
+
+.task-button:hover {
+    background: #fff6;
+}
+
+.add-task {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    border-top: var(--border);
+}
+
+.add-task-button {
+    background: var(--background-item);
+    border: none;
+    box-shadow: var(--bs-border);
+    border-radius: var(--radius);
+    width: 100%;
+    padding: .5em;
+    font-size: var(--fontsize-1);
+    color: var(--color);
+    text-align: center;
+    cursor: pointer;
+}
