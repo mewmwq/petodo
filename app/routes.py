@@ -35,6 +35,24 @@ def sign_up():
                 error_message='Please fill in all the fields.'
             )
 
+        # 文字数
+        elif len(user_data.username) > 30 or len(user_data.email) > 30:
+            return render_template(
+                'signup.html',
+                page_style='css/form.css',
+                page_title='Sign Up',
+                error_message='Please enter less than 30 characters.'
+            )
+
+        # メールアドレスが正しくない
+        elif '@' not in user_data.email:
+            return render_template(
+                'signup.html',
+                page_style='css/form.css',
+                page_title='Sign Up',
+                error_message='Mail address is incorrect.'
+            )
+
         # ユーザーが既に存在する
         elif User.query.filter_by(email=user_data.email).first():
             return render_template(
@@ -65,6 +83,15 @@ def login():
         email = request.form['email']
         password = request.form['password']
         user = User.query.filter_by(email=email).first()
+
+        # フォームが空
+        if email.strip() == '' or password.strip() == '':
+            return render_template(
+                'login.html',
+                page_style='css/form.css',
+                page_title='Login',
+                error_message='Please fill in all the fields.'
+            )
 
         # ユーザーが存在しない
         if user is None:
@@ -188,6 +215,16 @@ def make_pet():
                 error_message='Please fill in all the fields.'
             )
 
+        # 文字数
+        if len(pet_name) > 20:
+            return render_template(
+                'makePet.html',
+                page_style='css/form.css',
+                page_title='Make Pet',
+                pets=pet_list,
+                error_message='Please enter a name that is 20 characters or less.'
+            )
+
         # ペット作成成功
         else:
             pet_data = Pet(
@@ -227,6 +264,15 @@ def new_task():
                 page_style='css/form.css',
                 page_title='New Task',
                 error_message='Please fill in all the fields.'
+            )
+
+        # 文字数
+        if len(name) > 30:
+            return render_template(
+                'newTask.html',
+                page_style='css/form.css',
+                page_title='New Task',
+                error_message='Please enter a name that is 30 characters or less.'
             )
 
         # 期限が現在時刻より前
@@ -324,6 +370,16 @@ def edit_task(task_id):
                 page_title='Edit Task',
                 task=task,
                 error_message='Please fill in all the fields.'
+            )
+
+        # 文字数
+        if len(name) > 30:
+            return render_template(
+                'editTask.html',
+                page_style='css/form.css',
+                page_title='Edit Task',
+                task=task,
+                error_message='Please enter a name that is 30 characters or less.'
             )
 
         # 期限が現在時刻より前

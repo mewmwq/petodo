@@ -8,7 +8,7 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(30), nullable=False)
     email = db.Column(db.String(30), nullable=False)
-    password = db.Column(db.String(30), nullable=False)
+    password = db.Column(db.String(64), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False,
                            default=datetime.now(pytz.timezone('Asia/Tokyo')))
     task_streak = db.Column(db.Integer, nullable=False, default=0)
